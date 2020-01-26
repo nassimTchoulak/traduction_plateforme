@@ -10,6 +10,7 @@ import './my_ui.css';
 import Main from './components/main';
 import Profile_client from "./components/profile_client";
 import Join_traducteur from "./components/join_traducteurs";
+import TraducteurLogin from "./components/traducteurLogin";
 
 
 //import Background from "./back_img_v1.jpg";
@@ -121,6 +122,7 @@ const routes = [
 
         }
 
+
     ]
 
     },
@@ -153,7 +155,22 @@ const routes = [
 
         ]
 
-    }
+    },
+    {
+        path: "/traducteur/login",
+        component: App_head,
+        exact: true,
+        routes: [
+            {
+                path: "/traducteur/login",//   / means sandwich
+                component: TraducteurLogin,
+                exact: true
+
+            }
+
+        ]
+
+    },
 ];
 
 /*
