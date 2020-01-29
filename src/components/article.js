@@ -5,9 +5,10 @@ class Article extends React.Component{
         super(props);
         this.data =  props.data ;
         this.title = props.titre ;
+        this.extend = props.extend ;
         console.log(this.data) ;
         this.state = {
-            all:false,
+            all:this.extend,
 
         }
 

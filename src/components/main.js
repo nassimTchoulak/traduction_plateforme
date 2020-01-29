@@ -18,6 +18,13 @@ class Main extends React.Component {
 
         }
     }
+    componentDidMount() {
+        let info = window.location.pathname.split('/').pop() ;
+        console.log("hello from "+info) ;
+        if(info==='login'){
+            this.setState({login_in:true})
+        }
+    }
 
     render(){
 

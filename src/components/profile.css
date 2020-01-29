@@ -1,0 +1,45 @@
+.title_head{
+
+    font-family: Exo;
+    color: white;
+    background-color: #5da3b3;
+    border-radius: 5px 5px;
+    border: solid 1px #261326 ;
+   padding-top: 10px;
+    margin-top: 50px;
+    padding-bottom: 10px;
+
+
+}
+.title_head:hover{
+    background-color: #5da3b8;
+    cursor: pointer;
+
+}
+
+.table_element{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-top: solid 1px #261326;
+}
+.table_head{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    background-color: #eff2ff;
+    border-bottom: solid 2px #261326;
+
+}
+
+.accepted{
+    background-color: #c0ebdb;
+}
+
+table{
+    font-size: 90%;
+
+    border: solid 1px #261326;
+}
+td,tr{
+    padding: 10px;
+}

@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e9fb417-1592-4483-a900-90117b637fec" name="Default Changelist" comment="" />
+    <list default="true" id="9e9fb417-1592-4483-a900-90117b637fec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ClientPresentation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MainTraducteur.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/articleAll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/listeTraducteur.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/articles_wrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/articles_wrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/client_login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client_login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/join_traducteurs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/join_traducteurs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile_client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile_client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/traducteurLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/traducteurLogin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/my_ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/my_ui.css" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,10 +72,29 @@
       <workItem from="1579767057500" duration="8758000" />
       <workItem from="1579779280967" duration="1302000" />
       <workItem from="1579794125135" duration="3343000" />
+      <workItem from="1580025545304" duration="4303000" />
+      <workItem from="1580045737196" duration="697000" />
+      <workItem from="1580083738080" duration="1299000" />
+      <workItem from="1580148060859" duration="16000" />
+      <workItem from="1580289980712" duration="3531000" />
+      <workItem from="1580295290664" duration="2837000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

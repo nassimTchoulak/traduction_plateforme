@@ -2,6 +2,8 @@ import React from 'react' ;
 import Axios from 'axios';
 import querystr from "querystring";
 import  'bootstrap/dist/css/bootstrap.min.css';
+import Communes from "../data_options/communes";
+import Wilayas from "../data_options/wilayas";
 
 class client_login extends React.Component{
 
@@ -11,7 +13,11 @@ class client_login extends React.Component{
             email:"",
             password:"",
             displayed:true,
-            login_error:false
+            login_error:false,
+            wilaya:"",
+            display_inscription:false ,
+            invalid_inscription:false
+
         }
     }
 
@@ -28,6 +34,7 @@ class client_login extends React.Component{
             if(res.data.token!==null){
 
                 localStorage.setItem("id_client",res.data.token.id_client);
+                localStorage.setItem("mail_client",this.state.email) ;
                 this.setState({displayed:true})
 
             }
@@ -47,6 +54,11 @@ class client_login extends React.Component{
                 this.setState({displayed: true})
             }
         }
+    }
+    setWilyas = (val) =>{
+
+        this.setState({wilaya:val})
+
     }
 
     render(){
@@ -75,9 +87,12 @@ class client_login extends React.Component{
                         Traduisez vos documents  maintenant
                     </h3>
 
+
+                    {  <div className={"col-xs-6"} style={{fontSize:"80%"}} >
+
                     <div className={"interline col-xs-12"}> si vous possedez un Compte </div>
                     <div className={"col-xs-12"}>
-                        <div className={"col-xs-4 col-xs-offset-4"}>
+                        <div className={"col-xs-8 col-xs-offset-2"}>
 
                        <input type={"text"} className={"my_text_box_v2"} placeholder={" Votre email"} onChange={(e)=>{
                            this.setState({email:e.target.value})}}/>
@@ -88,7 +103,7 @@ class client_login extends React.Component{
 
                     <div className={"col-xs-12"} >
 
-                        <div className={"col-xs-4 col-xs-offset-4"}>
+                        <div className={"col-xs-8 col-xs-offset-2"}>
 
 
                         <input type={"password"} placeholder={"votre mot de pass"} className={"my_text_box_v2"} onChange={(e)=>{
@@ -99,13 +114,9 @@ class client_login extends React.Component{
                     <div className={"interline col-xs-12"}></div>
 
                     <div className={"col-xs-12 "}>
-                            <div >
-                        <input type={"button"} className={"my_button_v16"} value={" Connexion "} onClick={this.login_attempt}/>
-                            -ou-
-                                <input type={"button"} className={"my_button_v16"} value={" Inscription "}
-                                       onClick={()=>{
-                                           window.location = "/inscription_client"
-                                       }}/>
+                            <div  className={"interline"}>
+                        <input type={"button"} className={"my_button_v16"} value={"     Connexion      "} onClick={this.login_attempt}/>
+
                             </div>
 
 
@@ -117,6 +128,144 @@ class client_login extends React.Component{
 
                     </div>}
                     <div className={"interline col-xs-12"}></div>
+
+                    </div>}
+
+                    {
+                        <div className={"col-xs-6"} style={{fontSize:"80%",borderLeft:"solid 1px #261326"}} >
+
+                            <div className={"interline col-xs-12"}> Inscrivez vous Maintenant</div>
+
+                            <div className={"col-xs-12"}>
+                                <div className={"col-xs-8 col-xs-offset-2"}>
+                                    <input type={"text"} id={"email"} className={"my_text_box_v2"} placeholder={"  email"} onChange={(e)=>{
+                                    }}/>
+                                </div>
+                            </div>
+
+
+
+
+                            <div className={"col-xs-12"}>
+                                <div className={"col-xs-6"}>
+                                    <input type={"text"} className={"my_text_box_v2"} id={"prenom"}  placeholder={"  prenom"} onChange={(e)=>{
+                                    }}/>
+                                </div>
+                                <div className={"col-xs-6"}>
+                                    <input type={"text"} className={"my_text_box_v2"} id={"nom"}  placeholder={"  nom "} onChange={(e)=>{
+                                    }}/>
+                                </div>
+                            </div>
+
+
+                            <div className={"col-xs-12"}>
+                                <div className={"col-xs-8 col-xs-offset-2"}>
+                                    <input type={"number"} className={"my_text_box_v2"} id={"tel"}  placeholder={"  telephone"} onChange={(e)=>{
+                                    }}/>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div className={"col-xs-12"}>
+                                <div className={"col-xs-8 col-xs-offset-2"}>
+                                    <input type={"text"} className={"my_text_box_v2"} id={"adress"}  placeholder={"  adress"} onChange={(e)=>{
+                                    }}/>
+                                </div>
+                            </div>
+
+                            <div className={"col-xs-12"}>
+                                <div className={"col-xs-6"}>
+                                    <select className={"my_text_box_v2"} id={"destination"} placeholder={"fr"} onChange={(e)=>{
+                                        this.setWilyas(e.target.value)
+                                    }}>
+                                        <Wilayas  />
+                                    </select>
+
+                                </div>
+                                <div className={"col-xs-6"}>
+                                    <select className={"my_text_box_v2"}  id={"commune"} placeholder={"fr"}>
+                                        <Communes selected={this.state.wilaya} />
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className={"col-xs-12"} >
+                                <div className={"col-xs-8 col-xs-offset-2"}>
+                                    <input type={"password"} id={"password"}  placeholder={" mot de pass"} className={"my_text_box_v2"} onChange={(e)=> {
+                                    }}/>
+                                </div>
+                            </div>
+
+
+                            <div className={"col-xs-12 "}>
+                                <div  className={"interline"}>
+                                    <input type={"button"} className={"my_button_v16"} value={"     Inscription      "} onClick={()=>{
+
+                                        let mail = document.querySelector("#email").value ;
+                                        let adress = document.querySelector("#adress").value ;
+                                        let tel = document.querySelector("#tel").value ;
+                                        let password = document.querySelector("#password").value ;
+                                        let commune = document.querySelector("#commune").value ;
+                                        let prenom = document.querySelector("#prenom").value ;
+                                        let nom = document.querySelector("#nom").value ;
+
+                                        if((mail==="")||(password==="")||(nom==="")||(commune==="")){
+                                            this.setState({invalid_inscription:true})
+                                            return 0 ;
+                                        }
+
+                                        let form = new FormData()
+                                        form.append("nom", nom);
+                                        form.append("prenom", prenom);
+                                        form.append("tel", tel);
+                                        form.append("adress", adress);
+                                        form.append("wilaya", this.state.wilaya);
+                                        form.append("commune", commune);
+                                        form.append("email", mail);
+                                        form.append("password", password);
+
+                                        Axios.post('http://localhost/api/sign_in_client',form,{
+                                            headers: {
+                                                'Content-Type': 'multipart/form-data'
+                                            }
+                                        }).then((res)=>{
+                                            if(res.data.token!==null){
+                                                localStorage.setItem('id_client',res.data.token) ;
+                                                localStorage.setItem("mail_client",mail) ;
+                                            }
+
+                                        }).catch((err)=>{
+                                                console.log(err)
+                                            this.setState({invalid_inscription:true})
+                                        })
+
+                                    }} />
+
+                                    {this.state.invalid_inscription&&<div className={"col-xs-12"} style={{"color":"#a12000"}}>
+                                        vos parametres sont pas valide ou vous avez un compte
+
+                                    </div>}
+
+                                </div>
+
+
+
+                            </div>
+                            <div className={"interline col-xs-12"}></div>
+                            {this.state.login_error&&<div className={"col-xs-12"} style={{"color":"#a12000"}}>
+                                Votre Mot de pass est incorrect
+
+                            </div>}
+                            <div className={"interline col-xs-12"}></div>
+
+                        </div>
+
+
+
+                    }
 
 
 

@@ -11,6 +11,11 @@ import Main from './components/main';
 import Profile_client from "./components/profile_client";
 import Join_traducteur from "./components/join_traducteurs";
 import TraducteurLogin from "./components/traducteurLogin";
+import MainTraducteur from './components/MainTraducteur' ;
+import ListTraducteurs from "./components/listeTraducteur";
+import TraducteurPresentation from './components/TraducteurPresentation' ;
+import ClientPresentation from "./components/ClientPresentation";
+import ArticleAll from "./components/articleAll";
 
 
 //import Background from "./back_img_v1.jpg";
@@ -54,31 +59,87 @@ function App_head({ routes }) {
 
             </div>
 
-            <div className={"col-xs-12 zero_pad menu_upper"} >
+            {(localStorage.getItem("id_traducteur")!==null)&& <div className={"col-xs-12 zero_pad menu_upper"} >
 
 
-                    <NavLink to={"/"} activeClassName={"active_my_button_v8"}
-                             className={"col-xs-3  my_button_v8"} > Aceuill   </NavLink>
+                    <NavLink to={"/"}
+                             className={"col-xs-3  my_button_v8"} > Acceuill   </NavLink>
 
-                    <NavLink to={"/"} activeClassName={"active_my_button_v8"}
-                             className={"col-xs-3  my_button_v8"}> Nos traduction </NavLink>
-                <NavLink to={"/"} activeClassName={"active_my_button_v8"}
-                         className={"col-xs-3  my_button_v8"}> Mes objets </NavLink>
-                <NavLink to={"/"} activeClassName={"active_my_button_v8"}
+                    <NavLink to={"/traducteur/login"}
+                             className={"col-xs-3  my_button_v8"}> Mes traductions </NavLink>
+
+                <NavLink to={"/all_traducteur"}
                          className={"col-xs-3  my_button_v8"}> Nos Traducteurs </NavLink>
 
-                <NavLink to={"/"} activeClassName={"active_my_button_v8"}
+
+
+
+                <NavLink to={"/"}
                          className={"col-xs-3  my_button_v8"} > Blog   </NavLink>
 
-                <NavLink to={"/"} activeClassName={"active_my_button_v8"}
+                <NavLink to={"/articles"}
                          className={"col-xs-3  my_button_v8"}> Articles  </NavLink>
-                <NavLink to={"/recrutement"} activeClassName={"active_my_button_v8"}
-                         className={"col-xs-3  my_button_v8"}> Recrutement </NavLink>
-                <NavLink to={"/"} activeClassName={"active_my_button_v8"}
+
+                <NavLink to={"/"}
                          className={"col-xs-3  my_button_v8"}> A propos </NavLink>
 
+                <div style={{color:"white"}}
+                         className={"col-xs-3  my_button_v8"}  onClick={()=>{localStorage.clear();
+                    window.location.reload()}}> Deconnexion </div>
 
-            </div>
+
+            </div>}
+
+            {((localStorage.getItem('id_traducteur')===null)&&(localStorage.getItem("id_client")===null))&&<div className={"col-xs-12 zero_pad menu_upper"}>
+                <NavLink to={"/"}
+                         className={"col-xs-3  my_button_v8"} > Acceuill   </NavLink>
+                <NavLink to={"/all_traducteur"}
+                         className={"col-xs-3  my_button_v8"}> Nos Traducteurs </NavLink>
+
+                <NavLink to={"/recrutement"}
+                         className={"col-xs-3  my_button_v8"}> Recrutement </NavLink>
+
+                <NavLink to={'/'} className={"col-xs-3  my_button_v8"}> A propos </NavLink>
+
+                <NavLink to={"/traducteur/login"}
+                         className={"col-xs-3  my_button_v8"}> Connexion Traducteur </NavLink>
+
+                <NavLink to={"/client/profile"}
+                         className={"col-xs-3  my_button_v8"}> Connexion Client </NavLink>
+
+
+                <NavLink to={"/"}
+                         className={"col-xs-3  my_button_v8"} > Blog   </NavLink>
+
+                <NavLink to={"/articles"}
+                         className={"col-xs-3  my_button_v8"}> Articles  </NavLink>
+
+
+
+
+            </div>}
+
+            {(localStorage.getItem("id_client")!==null)&&<div className={"col-xs-12 zero_pad menu_upper"}>
+                <NavLink to={"/"}
+                         className={"col-xs-2  my_button_v8"} > Acceuill </NavLink>
+
+
+                <NavLink to={"/traducteur/login"}
+                         className={"col-xs-3  my_button_v8"}> Mes demandes traduction  </NavLink>
+
+                <NavLink to={"/all_traducteur"}
+                         className={"col-xs-3  my_button_v8"}> Nos traducteurs </NavLink>
+                <NavLink to={"/articles"}
+                         className={"col-xs-2  my_button_v8"}> Articles  </NavLink>
+
+                <div  style={{color:"white"}}
+                    className={"col-xs-2  my_button_v8"} onClick={()=>{localStorage.clear();
+                    window.location.reload() ;
+
+                    }}> Deconnexion </div>
+
+                </div>
+            }
 
             <div className={"col-xs-12 pub_panel zero_pad"}>
                 <div className={"pub_holder"}> la pub </div>
@@ -111,19 +172,29 @@ function RouteWithSubRoutes(route) {
 
 const routes = [
     {
-    path: "/",
+    path: '/',
     component: App_head,
     exact: true,
     routes: [
         {
-            path: "/",//   / means sandwich
+            path: '/',//   / means sandwich
             component: Main,
             exact: true
-
         }
-
-
     ]
+
+    },
+    {
+        path: '/login',
+        component: App_head,
+        exact: true,
+        routes: [
+            {
+                path: '/login',//   / means sandwich
+                component: Main,
+                exact: true
+            }
+        ]
 
     },
     {
@@ -171,34 +242,83 @@ const routes = [
         ]
 
     },
-];
-
-/*
-const routes = [
     {
-        path: "/",
+        path: "/traducteur/",
         component: App_head,
         exact: true,
         routes: [
             {
-                path: "/",//   / means sandwich
-                component: Object_mine,
+                path: "/traducteur/",//   / means sandwich
+                component: MainTraducteur,
                 exact: true
-            }]
+
+            }
+
+        ]
+
     },
 
     {
-        path:"/add_alarme/:var",
-        component:App_head,
-        exact:true ,
-        routes:[
+        path: "/all_traducteur/",
+        component: App_head,
+        exact: true,
+        routes: [
             {
-                path:"/add_alarme/:val",
-                component:add_alarme,
-                exact:true
+                path: "/all_traducteur/",//   / means sandwich
+                component: ListTraducteurs,
+                exact: true
+
             }
-        ]}
-]; */
+
+        ]
+
+    },
+    {
+        path: "/presentation/traducteur/:mail",
+        component: App_head,
+        exact: true,
+        routes: [
+            {
+                path: "/presentation/traducteur/:mail",//   / means sandwich
+                component: TraducteurPresentation,
+                exact: true
+
+            }
+
+        ]
+
+    },
+    {
+        path: "/presentation/client/:mail",
+        component: App_head,
+        exact: true,
+        routes: [
+            {
+                path: "/presentation/client/:mail",//   / means sandwich
+                component: ClientPresentation,
+                exact: true
+
+            }
+
+        ]
+
+    },
+    {
+        path: "/articles",
+        component: App_head,
+        exact: true,
+        routes: [
+            {
+                path: "/articles",//   / means sandwich
+                component: ArticleAll,
+                exact: true
+
+            }
+
+        ]
+
+    },
+];
 
 
 

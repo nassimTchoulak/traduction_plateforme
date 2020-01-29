@@ -1,0 +1,74 @@
+.external_card{
+    border: solid 1px #c4c4c4;
+    cursor: pointer;
+    margin-top: 50px;
+    border-radius: 5px 5px;
+
+}
+
+.external_card:hover{
+    border: solid 1px #261326;
+    box-shadow: 5px 5px 5px #9ca9b5 ;
+}
+.card_middle{
+    min-height: 200px;
+    border-bottom: solid 1px #9ca9b5;
+    text-align: left;
+    background-color: #f2f6f7;
+
+}
+
+.card_end{
+    padding-top: 10px;
+    min-height: 40px;
+    background-color: #f2f6f7;
+}
+
+.profile_pic{
+    border: solid 3px #261326;
+    border-radius: 5px 5px ;
+    width: 100% ;
+}
+
+
+
+
+
+.sel_login{
+    top:0px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    position: fixed;
+    left: 0px;
+    z-index: 50;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    min-height: 100vh;
+    overflow: scroll;
+
+
+
+
+}
+.sel_fields{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #f5fcf6;
+    color: #0f070f;
+    position: relative;
+    border-radius: 5px 5px;
+    font-size: 150%;
+    min-height: 100vh;
+    overflow: scroll;
+}
+
+
+.set_items{
+    position: absolute;
+    background-color: white;
+    z-index: 40;
+    font-size: 70%;
+
+}
