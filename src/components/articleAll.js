@@ -9,7 +9,7 @@ class ArticleAll extends React.Component {
     render(){
 
 
-        return <div className={"col-xs-10 col-xs-offset-1"}>
+        return <div className={"col-xs-10 col-xs-offset-1"} style={{fontSize:"120%"}}>
 
             <h2> Nos dernières révelations , news et articles</h2>
             <ArticlWrapper extend={true} />

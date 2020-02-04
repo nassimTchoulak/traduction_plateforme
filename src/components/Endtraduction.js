@@ -64,7 +64,7 @@ const EndTraduction = (props) =>{
                             }
                         }).then((res)=>{
                             if(res.data.status){
-                                alert("OMG")
+
                             }
                         }).catch((err)=>{
                             console.log(err) ;

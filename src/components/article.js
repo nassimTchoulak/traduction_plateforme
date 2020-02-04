@@ -17,12 +17,14 @@ class Article extends React.Component{
 
     render(){
 
-        return <div className={"col-xs-12 interline"}>
-            <h3>{ this.title}</h3>
-            {this.state.all&&<div>{this.data}</div>}
-            {!this.state.all&&<div>{this.data.substring(0,100)}</div>}
+        return <div className={"col-xs-12 interline"}
+                    style={{border:'solid 1px black',borderRadius:"5px 5px",paddingBottom:"20px",marginBottom:'10px'}}>
+            <h3 align={"left"}>{ this.title}</h3>
+            {this.state.all&&<div align={"left"}>{this.data}</div>}
+            {!this.state.all&&<div align={"left"}>{this.data.substring(0,200)}</div>}
 
-            <input type={"button"} value={(()=>{
+            <div align={"right"}>
+            <input align={"right"} type={"button"} value={(()=>{
                 if(this.state.all){
                     return "reduire"
                 }
@@ -33,6 +35,7 @@ class Article extends React.Component{
             })()} className={"mini_button"}  onClick={()=>{
                 this.setState({all:!this.state.all})
             }}/>
+            </div>
         </div>
     }
 

@@ -17,6 +17,18 @@
 
 }
 
+
+.table_elementN{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-top: solid 1px #261326;
+
+}
+.table_elementN:hover{
+    background-color: #eff2ff;
+    cursor: pointer;
+}
+
 .table_element{
     padding-top: 20px;
     padding-bottom: 10px;
@@ -42,4 +54,8 @@ table{
 }
 td,tr{
     padding: 10px;
+}
+.sortable:hover{
+    background-color: #5da3b3;
+    cursor: pointer;
 }

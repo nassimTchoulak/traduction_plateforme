@@ -21,11 +21,41 @@ class Signal extends React.Component{
     send = () =>{
         if(this.type==="traducteur"){// signaler traducteur
                 let destination = this.props.destination ;
+                let f = new FormData() ;
+                f.append("destination",destination) ;
+                f.append("source",this.source) ;
+                f.append("cause",document.querySelector("#cause").value)
+            f.append("type",'traducteur');
 
 
+                Axios.post('http://localhost/api/signal',f,{
+
+                }).then((res)=>{
+                    console.log(res)
+                }).catch((err)=>{
+                    console.log(err);
+                })
 
         }
         else{// client signal
+            let destination = this.props.destination ;
+            let f = new FormData() ;
+            f.append("destination",destination) ;
+            f.append("source",this.source) ;
+            f.append("cause",document.querySelector("#cause").value);
+            f.append("type",'client');
+
+
+            Axios.post('http://localhost/api/signal',f,{
+                headers: {
+
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then((res)=>{
+                console.log(res)
+            }).catch((err)=>{
+                console.log(err);
+            })
 
         }
     }
@@ -36,7 +66,7 @@ class Signal extends React.Component{
 
             {!this.state.done&&<div>
 
-                <input type={"button"} style={{color:"white",backgroundColor:"#eb8954",fontSize:"110%",borderRadius:"10px 10px",padding:"5px",outline:"none"}} value={"    signaler    "} onClick={()=>{
+                <input type={"button"} style={{backgroundColor:"white",color:"#22313f",fontSize:"115%",borderRadius:"5px 5px",padding:"5px",outline:"none",border:"solid 1px #22313f"}} value={"    signaler    "} onClick={()=>{
             this.setState({display:true})}
             } />
 
@@ -48,7 +78,7 @@ class Signal extends React.Component{
 
                 <div className={"col-xs-12 interline"}> </div>
 
-                <textarea placeholder={"descrivez votre cause"} className={"textarea"} nrows={"10"} />
+                <textarea placeholder={"descrivez votre cause"} id={"cause"} className={"textarea"} nrows={"10"} />
 
 
 

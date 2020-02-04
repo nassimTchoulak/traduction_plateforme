@@ -14,7 +14,7 @@ class Paiement extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.count!=prevProps.count){
+        if(this.props.count!==prevProps.count){
             this.setState({displayed:true})
         }
     }
@@ -72,10 +72,11 @@ class Paiement extends React.Component {
                                       onClick={()=>{
 
                                           let f = new FormData() ;
-                                          f.append("id_devis", "7");
+                                          f.append("id_devis", this.props.id_demande);
                                           f.append("mail_traducteur", this.props.traducteur);
                                           f.append("id_client", localStorage.getItem('id_client'));
                                           f.append("montant", this.props.prix);
+                                          f.append("document",this.state.file) ;
 
                                           Axios.post('http://localhost/api/start_traduction',f,{
                                               headers: {
@@ -83,7 +84,8 @@ class Paiement extends React.Component {
                                                   'Content-Type': 'multipart/form-data'
                                               }
                                           }).then((res)=>{
-                                              if(res.data.status){
+                                              console.log(res) ;
+                                              if(res.data.status>0){
                                                             this.setState({displayed:false})
                                               }
                                           }).catch((err)=>{

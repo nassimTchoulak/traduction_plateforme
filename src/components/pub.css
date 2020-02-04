@@ -1,0 +1,51 @@
+.biggest_one {
+    height: auto;
+    width: 100%;
+
+    overflow: hidden;
+    display: inline-block;
+
+
+}
+
+.biggest_one  > img {
+
+    height: 18vh;
+    width: 100%;
+
+
+}
+.biggest_one .mover {
+
+
+
+
+}
+
+.biggest_one .mover {
+
+    animation-name: move;
+    animation-duration: 1s;
+}
+
+
+@keyframes move {
+
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.iniline{
+    display: inline-block;
+    padding: 0px;
+}
+.pub_panel{
+    background-image: linear-gradient(to bottom right, #1c3359, #5da3b3);
+    padding-top: 5vh;
+    height: 25vh;
+}

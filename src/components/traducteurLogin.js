@@ -19,9 +19,11 @@ class TraducteurLogin extends React.Component{
 
 
         return <React.Fragment>
+            <div className={"col-xs-12"} style={{padding:'2%',backgroundColor:"#ebebeb"}}>
 
-            <div className={"col-xs-10 col-xs-offset-1 client_fields"}>
-                <div style={{position:"absolute",top:"0px",right:"0px",cursor: "pointer"}}
+            <div className={"col-xs-10 col-xs-offset-1 client_fields"}
+                 style={{border:"solid 1px #d4d4d4",borderRadius:"5px 5px",backgroundColor:"white"}}>
+                <div style={{position:"absolute",top:"0px",right:"0px",cursor: "pointer",color:"#22313f"}}
                      onClick={()=>{
                          this.setState({displayed:false}) ;
                      }}>
@@ -60,7 +62,7 @@ class TraducteurLogin extends React.Component{
 
                 <div className={"col-xs-12 "}>
                     <div >
-                        <input type={"button"} className={"my_button_v16"} value={"    Connexion   Traducteur    "} onClick={()=>{
+                        <input type={"button"} className={"my_button_v16"} value={"    Connexion traducteur    "} onClick={()=>{
                             alert("hello")
 
                             let f = new FormData() ;
@@ -96,6 +98,7 @@ class TraducteurLogin extends React.Component{
 
                 </div>
                <div className={"interline col-xs-12"}></div>
+            </div>
             </div>
         </React.Fragment>
     }

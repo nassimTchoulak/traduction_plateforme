@@ -33,7 +33,7 @@ class Main extends React.Component {
 
 
          <div className={"col-xs-4 "}>
-             <h2> <strong>Nos Articles</strong> </h2>
+             <h2 style={{color:'#1c3359'}}> <strong> Lisez nos Articles</strong> </h2>
             <div>
                     <ArticlWrapper/>
 
@@ -50,7 +50,7 @@ class Main extends React.Component {
                         console.log("count update")
                     }
                 }}>
-                    <h2 style={{"fontFamily":"Exo","fontWeight":"bolder"}}> Traduisez Votre document maintenant </h2>
+                    <h2 style={{"fontFamily":"Exo","fontWeight":"bolder",color:'#1c3359'}}> Traduisez Votre document maintenant </h2>
                     <div className={"col-xs-12 interline "}></div>
 
 
@@ -174,7 +174,7 @@ class Main extends React.Component {
                                         }).then((res)=>{
 
                                             if(res.data.status){
-                                                window.location = "/done "
+                                                window.location = "/client/profile "
                                             }
                                         }).catch((err)=>{
                                                 console.log(err) ;

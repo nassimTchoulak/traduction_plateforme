@@ -3,6 +3,7 @@ import Axios from 'axios' ;
 import './cardstyle.css' ;
 
 import Signal from "./signaller";
+import AdminTraducteurPlus from "./admin/AdminTraducteurPlus";
 
 class TraducteurPresentation extends React.Component {
 
@@ -18,7 +19,7 @@ class TraducteurPresentation extends React.Component {
         Axios.get('http://localhost/api/get_profile_traducteur?mail='+info).then((res)=>{
 
             if(res.data[0].moyenne===null){
-                res.data[0].moyenne = 3 ;
+                res.data[0].moyenne = 2.5 ;
             }
 
             this.setState({traducteur : res.data[0],
@@ -60,8 +61,12 @@ class TraducteurPresentation extends React.Component {
 
                             <li>  Nombre de traductions: <div style={{display:"contents",color:"#1c3359"}}> {this.state.traducteur.nb_traduction} ducuments </div>   </li>
 
-                            <li>  Note Moyenne: <div style={{display:"contents",color:"#c7bf52"}}> {this.state.traducteur.moyenne.toString().substr(0,3)+" " }
-                            <span className={"glyphicon glyphicon-star"} style={{color:"#c7bf52"}}></span> </div>   </li>
+                            <li>  Note Moyenne: <div style={{display:"contents",color:"#ff5774"}}>
+
+                                <span className={"glyphicon glyphicon-star"} style={{color:"#ff5774"}}></span>
+
+                                {this.state.traducteur.moyenne.toString().substr(0,3)+"/5 " }
+                            </div>   </li>
                         </div>
 
                         <div className={"col-xs-12"}  style={{paddingTop:"100px"}}>
@@ -104,14 +109,14 @@ class TraducteurPresentation extends React.Component {
 
 
                         <div className={"col-xs-12 "} style={{fontSize:"120%",paddingBottom:"40px"}} align={"left"}> <div style={{fontWeight:"bolder",display:"contents"}}>Langues d'expertise : </div>
-                            {this.state.traducteur.langues.split('|').map((i)=>{
-                                return <li> {i}</li>
+                            {this.state.traducteur.langues.split('|').map((i,itr)=>{
+                                return <li key={itr}> {i}</li>
                             })}</div>
 
 
                         <div className={"col-xs-12 "} style={{fontSize:"120%",paddingBottom:"40px"}} align={"left"}> <div style={{fontWeight:"bolder",display:"contents"}}>Les domains de traductions métrisés : </div>
-                            {this.state.traducteur.type_traduction.split('|').map((i)=>{
-                                return <li> {i}</li>
+                            {this.state.traducteur.type_traduction.split('|').map((i,itr)=>{
+                                return <li key={itr}> {i}</li>
                             })}</div>
 
 
@@ -129,6 +134,7 @@ class TraducteurPresentation extends React.Component {
             }
 
 
+            {(localStorage.getItem('admin')!==null)&&<AdminTraducteurPlus />}
         </div>
     }
 }

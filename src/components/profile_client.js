@@ -44,21 +44,21 @@ class Profile_client extends React.Component{
         Axios.get('http://localhost:80/api/get_demandes_client?id_client='+localStorage.getItem("id_client"))
             .then((res)=>{
                 this.setState({demandes:res.data}) ;
-                console.log(res.data)
+               // console.log(res.data)
             }).catch((err)=>{
             console.log(err);
         }) ;
         Axios.get('http://localhost:80/api/get_traductions_client?id_client='+localStorage.getItem("id_client"))
             .then((res)=>{
                 this.setState({traductions:res.data}) ;
-                console.log(res.data)
+              //  console.log(res.data)
             }).catch((err)=>{
             console.log(err);
         })
         Axios.get('http://localhost:80/api/get_devis_client?id_client='+localStorage.getItem("id_client"))
             .then((res)=>{
                 this.setState({devis:res.data}) ;
-                console.log(res)
+            //    console.log(res)
             }).catch((err)=>{
             console.log(err);
         })
@@ -231,14 +231,27 @@ class Profile_client extends React.Component{
                             <td> {i.duree}</td>
 
                             <td> {((()=>{
-                                if(i.duree!==null){
-                                    return <input type={"button"} value={" Valider & Payer"} onClick={()=>{
+                                if(i.duree!==null) {
 
-                                        this.setState({pay:{document:i.nom_document,prix:i.prix,traducteur:i.traducteur,id_demande:i.id_demande}})
-                                        this.setState({paiement_counter:this.state.paiement_counter+1})
+                                    if (i.payed === 1) {
+                                        return <div style={{display:'contents',color:'#261326'}}>Paiment effectué</div>
 
+                                    } else {
+                                        return <input type={"button"} value={" Valider & Payer"} onClick={() => {
+
+                                            this.setState({
+                                                pay: {
+                                                    document: i.nom_document,
+                                                    prix: i.prix,
+                                                    traducteur: i.traducteur,
+                                                    id_demande: i.id_demande
+                                                }
+                                            })
+                                            this.setState({paiement_counter: this.state.paiement_counter + 1})
+
+                                        }
+                                        } className={"validate_button"}/>
                                     }
-                                    } className={"validate_button"}/>
                                 }
                                 else{
                                     return  "En attente"

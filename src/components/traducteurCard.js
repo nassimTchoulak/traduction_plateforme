@@ -12,7 +12,7 @@ class  traducteurCard extends React.Component {
         this.nom = props.nom ;
         this.prenom = props.prenom ;
         this.langues = props.langues.split('|') ;
-        this.presentation  = props.presentation.substr(0,100) +"..." ;
+        this.presentation  = props.presentation.substr(0,50) +"..." ;
        /* this.presentation = "Titulaire d'un diplôme de traducteur, j'exerce depuis sept ans en tant que traducteur pour un site internet pour " +
             "qui je traduis des articles de ".substr(0,100) +"...";*/
         this.assermente = (props.assermente===1) ;
@@ -68,7 +68,7 @@ class  traducteurCard extends React.Component {
                     return <span style={{color:"#261326",fontWeight:"bold"}}> {this.titleCase(i)}{' '}</span>
                 })}</div>
 
-                <div className={"col-xs-5"} style={{marginTop:"10px"}}> Type Traduction: {this.types.map((i)=>{
+                <div className={"col-xs-5"} style={{marginTop:"10px"}}>  Traduction: {this.types.map((i)=>{
                     return <span style={{color:"#261326",fontWeight:"bold"}}> {this.titleCase(i)}{' '}</span>
                 })} </div>
 

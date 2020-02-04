@@ -7,18 +7,19 @@ const Communes = (props) =>{
         const [communes,SetCommunes] = useState([]) ;
     const [filter,SetFilter] = useState(new RegExp("")) ;
 
-        useEffect(()=>{
+     useEffect(()=>{
             Axios.get("http://localhost/api/communes").then((res)=>{
 
                 SetCommunes(res.data.data) ;
+                console.log("see")
 
             }).catch(err=>console.log(err))
         },[]) ;
 
     useEffect(()=>{
         SetFilter(new RegExp(props.selected))
-        console.log(filter)
-        console.log(props.selected)
+        console.log("see")
+
     },[props.selected]) ;
 
 
@@ -31,6 +32,9 @@ const Communes = (props) =>{
                 if(filter.test(i.wilaya)) {
 
                     return <option key={otr} value={i.commune}>{i.commune}</option>
+                }
+                else{
+                    return null ;
                 }
 
             })

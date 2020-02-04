@@ -22,32 +22,36 @@ class client_login extends React.Component{
     }
 
     login_attempt = () =>{
-        Axios.post('http://localhost/api/client_login', querystr.stringify({
-            email:this.state.email,
-            password:this.state.password
 
-        }), {
+        let form = new FormData();
+        form.append("email",this.state.email);
+        form.append("password", this.state.password);
+
+        Axios.post('http://localhost/api/client_login', form, {
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'multipart/form-data'
             }
         }).then((res)=>{
             if(res.data.token!==null){
-
+                console.log(res.data) ;
                 localStorage.setItem("id_client",res.data.token.id_client);
                 localStorage.setItem("mail_client",this.state.email) ;
                 this.setState({displayed:true})
 
             }
             else{
+
                 this.setState({login_error:true})
             }
         }).catch((err)=>{
-            console.log(err)
+            console.log(err);
             this.setState({login_error:true})
         }) ;
 
 
     };
+
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.count!==prevProps.count){
             if(localStorage.getItem("id_client")===null) {
@@ -138,8 +142,7 @@ class client_login extends React.Component{
 
                             <div className={"col-xs-12"}>
                                 <div className={"col-xs-8 col-xs-offset-2"}>
-                                    <input type={"text"} id={"email"} className={"my_text_box_v2"} placeholder={"  email"} onChange={(e)=>{
-                                    }}/>
+                                    <input type={"text"} id={"email"} autocomplete="off" className={"my_text_box_v2"} placeholder={"  email"} />
                                 </div>
                             </div>
 
@@ -148,20 +151,17 @@ class client_login extends React.Component{
 
                             <div className={"col-xs-12"}>
                                 <div className={"col-xs-6"}>
-                                    <input type={"text"} className={"my_text_box_v2"} id={"prenom"}  placeholder={"  prenom"} onChange={(e)=>{
-                                    }}/>
+                                    <input type={"text"} className={"my_text_box_v2"} id={"prenom"}  placeholder={"  prenom"} />
                                 </div>
                                 <div className={"col-xs-6"}>
-                                    <input type={"text"} className={"my_text_box_v2"} id={"nom"}  placeholder={"  nom "} onChange={(e)=>{
-                                    }}/>
+                                    <input type={"text"} className={"my_text_box_v2"} id={"nom"}  placeholder={"  nom "}/>
                                 </div>
                             </div>
 
 
                             <div className={"col-xs-12"}>
                                 <div className={"col-xs-8 col-xs-offset-2"}>
-                                    <input type={"number"} className={"my_text_box_v2"} id={"tel"}  placeholder={"  telephone"} onChange={(e)=>{
-                                    }}/>
+                                    <input type={"number"} className={"my_text_box_v2"} id={"tel"}  placeholder={"  telephone"} />
                                 </div>
                             </div>
 
@@ -171,8 +171,7 @@ class client_login extends React.Component{
 
                             <div className={"col-xs-12"}>
                                 <div className={"col-xs-8 col-xs-offset-2"}>
-                                    <input type={"text"} className={"my_text_box_v2"} id={"adress"}  placeholder={"  adress"} onChange={(e)=>{
-                                    }}/>
+                                    <input type={"text"} className={"my_text_box_v2"} id={"adress"}  placeholder={"  adress"}/>
                                 </div>
                             </div>
 
@@ -194,8 +193,7 @@ class client_login extends React.Component{
 
                             <div className={"col-xs-12"} >
                                 <div className={"col-xs-8 col-xs-offset-2"}>
-                                    <input type={"password"} id={"password"}  placeholder={" mot de pass"} className={"my_text_box_v2"} onChange={(e)=> {
-                                    }}/>
+                                    <input type={"password"} id={"password"}  placeholder={" mot de pass"} className={"my_text_box_v2"}/>
                                 </div>
                             </div>
 

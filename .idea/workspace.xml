@@ -2,19 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e9fb417-1592-4483-a900-90117b637fec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ClientPresentation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MainTraducteur.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/articleAll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/listeTraducteur.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pub.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ClientPresentation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClientPresentation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Endtraduction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Endtraduction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TraducteurPresentation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TraducteurPresentation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/articles_wrapper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/articles_wrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/articleAll.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/articleAll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/clientPure/Paiement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/clientPure/Paiement.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/client_login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/client_login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/join_traducteurs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/join_traducteurs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/profile_client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile_client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/signaller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/signaller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/traducteurCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/traducteurCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/traducteurLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/traducteurLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_options/communes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_options/communes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/my_ui.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/my_ui.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,6 +35,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -37,9 +47,14 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../myfront/sonatrach_supervision_front_end-master" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
@@ -72,12 +87,21 @@
       <workItem from="1579767057500" duration="8758000" />
       <workItem from="1579779280967" duration="1302000" />
       <workItem from="1579794125135" duration="3343000" />
-      <workItem from="1580025545304" duration="4303000" />
-      <workItem from="1580045737196" duration="697000" />
-      <workItem from="1580083738080" duration="1299000" />
-      <workItem from="1580148060859" duration="16000" />
-      <workItem from="1580289980712" duration="3531000" />
-      <workItem from="1580295290664" duration="2837000" />
+      <workItem from="1579877668564" duration="10446000" />
+      <workItem from="1579996308009" duration="52000" />
+      <workItem from="1580150640089" duration="16191000" />
+      <workItem from="1580218318464" duration="40787000" />
+      <workItem from="1580283502148" duration="2604000" />
+      <workItem from="1580323532386" duration="647000" />
+      <workItem from="1580414696390" duration="610000" />
+      <workItem from="1580417177341" duration="1247000" />
+      <workItem from="1580426686154" duration="809000" />
+      <workItem from="1580427697958" duration="279000" />
+      <workItem from="1580462469001" duration="3126000" />
+      <workItem from="1580560478685" duration="6887000" />
+      <workItem from="1580581863786" duration="16339000" />
+      <workItem from="1580744169929" duration="2642000" />
+      <workItem from="1580812466313" duration="6964000" />
     </task>
     <servers />
   </component>

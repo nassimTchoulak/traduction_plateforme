@@ -40,14 +40,11 @@ class Join_traducteur extends React.Component{
 
     send_my_submission = () =>{
 
-        alert(this.state.password);
-        alert(this.state.password2);
-        alert(this.state.cv.name);
-        alert(this.state.email);
+
 
         if((this.state.password===this.state.password2)&&(this.state.cv!==null)&&(this.state.email!=="")){
             let form = new FormData();
-            alert("sent") ;
+
             let langues = "" ;
 
             if(document.querySelector("#lan_ara").checked){
@@ -115,10 +112,14 @@ class Join_traducteur extends React.Component{
 
 
     render() {
-        return <div className={"col-xs-12"}>
-            {!this.state.display_code&&<div className={"col-xs-offset-1 col-xs-10 formulaire_aceuill"} style={{borderLeft:"solid 1px black",borderRight:"solid 1px black"}}>
-                <h2 style={{"fontFamily":"Exo","fontWeight":"bolder"}}> Rejoignez Nous et recevez les offres de traductions
+        return <div className={"col-xs-12"} style={{padding:'2%',backgroundColor:"#ebebeb"}}>
+
+            {!this.state.display_code&&<div className={"col-xs-offset-1 col-xs-10 formulaire_aceuill"}
+                                            style={{border:"solid 1px #d4d4d4",borderRadius:"5px 5px",backgroundColor:"white"}}>
+                <h2 style={{"fontFamily":"Exo","fontWeight":"bolder",paddingTop:"20px"}}> Rejoignez Nous
                      </h2>
+                <h2 style={{"fontFamily":"Exo","fontWeight":"bolder"}}> Recevez les offres de traductions
+                </h2>
                 <div className={"col-xs-12"}>
                 </div>
 

@@ -3,12 +3,13 @@ import Axios from 'axios' ;
 import './cardstyle.css' ;
 
 import Signal from "./signaller";
+import AdminClientPlus from "./admin/AdminClientPlus";
 
 class ClientPresentation extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = { traducteur : {},loaded:false} ;
+        this.state = { traducteur : { nom:"" }, loaded:false} ;
     }
 
     componentDidMount() {
@@ -17,19 +18,24 @@ class ClientPresentation extends React.Component {
 
         Axios.get('http://localhost/api/get_client_profile?email='+info).then((res)=>{
 
-            console.log(res.data) ;
+            if(res.data.length>0){
+                this.setState({traducteur : res.data[0],
+                    loaded:true,
+                    src:"http://localhost/files/clients/"+info+".jpg" ,
 
-            this.setState({traducteur : res.data[0],
-                loaded:true,
-                src:"http://localhost/files/clients/"+info+".jpg" ,
+                })
+            }
 
-            })
+
 
         }).catch((err)=>{
             console.log(err)
         })
     }
     titleCase(str) {
+        if(str===undefined){
+            return ' ';
+        }
         let splitStr = str.toLowerCase().split(' ');
         for (let i = 0; i < splitStr.length; i++) {
             // You do not need to check if i is larger than splitStr length, as your for does that for you
@@ -58,7 +64,7 @@ class ClientPresentation extends React.Component {
 
                         <div className={"col-xs-12"}  style={{paddingTop:"100px"}}>
 
-                            <Signal destination={this.state.traducteur.email} type={'traducteur'} source={localStorage.getItem('id_client')} />
+                            <Signal destination={this.state.traducteur.email} type={'client'} source={localStorage.getItem('id_traducteur')} />
 
                         </div>
 
@@ -111,6 +117,8 @@ class ClientPresentation extends React.Component {
 
                 </div>
             }
+
+            {(localStorage.getItem('admin')!==null)&&<AdminClientPlus />}
 
 
         </div>
